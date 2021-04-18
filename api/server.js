@@ -9,9 +9,9 @@ server.use(express.json());
 server.use('/api/users', usersRouter);
 
 server.use((err, req, res, next) => {
-      const errorStatus = error.status || 500;
-      const errorMessage = error.message || "Server failed...";
-      res.status(errorStatus).json({ message: errorMessage, stack: error.stack });
+      const errorStatus = err.status || 500;
+      const errorMessage = err.message || "Server failed...";
+      res.status(errorStatus).json({ message: errorMessage, stack: err.stack });
     })
 
 module.exports = server;
