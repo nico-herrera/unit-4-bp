@@ -24,7 +24,7 @@ router.post('/', async (req, res, next) => {
         const newUser = await Users.insert(req.body);
         res.status(201).json(newUser)
     } catch (err) {
-        next(err)
+        res.status(500).json({message: "internal error"})
     }
 })
 
