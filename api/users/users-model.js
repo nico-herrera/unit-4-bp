@@ -8,9 +8,9 @@ const findById = id => {
     return db('users').where({id}).first()
 }
 
-const insert = async user => {
+const insert = async (user) => {
     const [id] = await db('users').insert(user);
-    return db('users').where({id}).first();
+    return findById(id);
 }
 
 const update = (id, changes) => {
