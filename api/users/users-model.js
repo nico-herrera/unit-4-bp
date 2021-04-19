@@ -9,7 +9,7 @@ const findById = id => {
 }
 
 const insert = async (user) => {
-    const [id] = await db('users').insert(user);
+    const id = await db('users').insert(user);
     console.log(id);
     return db('users').where({id}).first();
   }
