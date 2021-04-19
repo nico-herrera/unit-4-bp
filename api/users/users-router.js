@@ -25,7 +25,7 @@ router.post('/', async (req, res, next) => {
         console.log(req.body)
         res.status(201).json(newUser)
     } catch (err) {
-        console.log(err)
+        console.log(err.stack)
         next({ apiCode: 500, apiMessage: 'error posting user', ...err })
     }
 })
