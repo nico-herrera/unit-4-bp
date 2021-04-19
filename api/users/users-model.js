@@ -1,7 +1,7 @@
 const db = require('../../data/dbConfig');
 
 const findAll = () => {
-    return db('users');
+    return db('users').orderBy('users.id');
 }
 
 const findById = id => {

@@ -18,6 +18,7 @@ module.exports = {
 
   production: {
     client: 'pg',
+    useNullAsDefault: true,
     connection: {
       connectionString: pgConnection,
       ssl: { rejectUnauthorized: false }
