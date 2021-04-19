@@ -22,8 +22,10 @@ router.get('/:id', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
     try {
         const newUser = await Users.insert(req.body);
+        console.log(req.body)
         res.status(201).json(newUser)
     } catch (err) {
+        console.log(err)
         next({ apiCode: 500, apiMessage: 'error posting user', ...err })
     }
 })
