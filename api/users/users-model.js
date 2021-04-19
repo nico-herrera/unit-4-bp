@@ -9,9 +9,14 @@ const findById = id => {
 }
 
 async function add(user) {
-    const [id] = await db('users').insert(user);
+    try {
+        const [id] = await db('users').insert(user);
     console.log(id)
     return findById(id);
+    } catch (err) {
+        console.log(err)
+    }
+    
 }
 
 const update = (id, changes) => {
